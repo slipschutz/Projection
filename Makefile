@@ -1,7 +1,7 @@
 CXX=$(shell root-config --cxx)
 CFLAGS=-c -g -Wall $(shell root-config --cflags) -I./src -I ./include
 LDLIBS=$(shell root-config --glibs)
-LDFLAGS=$(shell root-config --ldflags)
+LDFLAGS=$(shell root-config --ldflags) -g
 #SOURCES=./src/SL_Event.cc ./src/FileManager.cc ./src/Filter.cc
 SOURCES=$(shell ls ./src/*.cc)
 TEMP=$(shell ls ./src/*.cc~)

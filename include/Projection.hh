@@ -5,7 +5,7 @@
 #include "TH1D.h"
 
 #include "TGraphErrors.h"
-
+#include <string>
 #include <vector>
 using namespace std;
 
@@ -26,10 +26,15 @@ public:
   inline void SetNumOfProjections(int n){numOfProjections=n;}
   inline void SetRange(Double_t low,Double_t high){range_start=low;
     range_end=high;}
+  void SetRange(string s);//for the "auto" option
+
 
   inline vector<TH1D*> getProjections(){return theProjections;}
 
+
+
   void MakeProjections();
+  void MakeResProjections();
 
   vector <double> GetGraphCoef();
 
@@ -40,6 +45,8 @@ public:
 private:
   TH2F * theData;
 
+  void autoRange();
+  
   int numOfProjections;
   Double_t range_start;//lower y bound
   Double_t range_end;//upper y bound
